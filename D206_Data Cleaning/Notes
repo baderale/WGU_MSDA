@@ -1,6 +1,0 @@
-duplicated() - used to detect ducplicate functions
-
-value_counts() - outputs counts of function before it
-    ex: df.duplicated.value_counts()
-    
-drop_duplicates() - removes duplicates from dataset
