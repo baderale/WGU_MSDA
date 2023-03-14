@@ -1,5 +1,5 @@
 # WGU_MSDA
 Masters of Data Analytics at WGU
 
-[D205 - Data Acquisition](baderale/D205-Data Acquisition)
-[D206 - Cleaning](baderale/D206 - Data Cleaning)
+[I'm a relative reference to a repository file](../blob/master/LICENSE)
+[D206 - Data Cleaning](../baderale/D206 - Data Cleaning)
