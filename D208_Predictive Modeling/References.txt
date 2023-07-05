@@ -1,2 +1,3 @@
 https://www.baeldung.com/cs/normalization-vs-standardization ---------------> For normalization vs standardization
 https://statisticsbyjim.com/regression/interpret-r-squared-regression/------> Interpreting R-Values
+https://www.sfu.ca/~mjbrydon/tutorials/BAinPy/10_multiple_regression.html---> Good guide
