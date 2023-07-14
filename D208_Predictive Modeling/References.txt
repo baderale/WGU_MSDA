@@ -3,3 +3,4 @@ https://statisticsbyjim.com/regression/interpret-r-squared-regression/------> In
 https://www.sfu.ca/~mjbrydon/tutorials/BAinPy/10_multiple_regression.html---> Good guide on whole process
 https://quantifyinghealth.com/correlation-collinearity-multicollinearity/---> Information on multicollinarity
 https://www.statology.org/multiple-linear-regression-assumptions/-----------> Assumptions about MLR
+https://towardsdatascience.com/q-q-plots-explained-5aa8495426c0-------------> QQPlot Explained
