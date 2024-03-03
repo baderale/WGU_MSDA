@@ -4,9 +4,9 @@
 <workbook original-version='18.1' source-build='2023.3.1 (20233.23.1227.1336)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
   <document-format-change-manifest>
     <_.fcp.AnimationOnByDefault.true...AnimationOnByDefault />
+    <MapboxVectorStylesAndLayers />
     <_.fcp.MarkAnimation.true...MarkAnimation />
     <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
-    <_.fcp.ObjectModelRelationshipPerfOptions.true...ObjectModelRelationshipPerfOptions />
     <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
     <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
     <SheetIdentifierTracking />
@@ -32,21 +32,66 @@
             <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='F:/GitHub Repos/WGU_MSDA/D211_Advanced Data Acquisition/CSV Files/populationByState.xls' interpretationMode='0' password='' server='' validate='no' />
           </named-connection>
         </named-connections>
-        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='postgres.0swzw3v16z65hw12932ey1qs8e8m' name='location' table='[public].[location]' type='table' />
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='postgres.0swzw3v16z65hw12932ey1qs8e8m' name='Custom SQL Query1' type='text'>SELECT&#13;
+  p.*,&#13;
+  l.zip,&#13;
+  l.city,&#13;
+  l.state,&#13;
+  l.county&#13;
+FROM&#13;
+  patient p&#13;
+INNER JOIN&#13;
+  location l&#13;
+ON&#13;
+  p.location_id = l.location_id</_.fcp.ObjectModelEncapsulateLegacy.false...relation>
         <_.fcp.ObjectModelEncapsulateLegacy.true...relation type='collection'>
           <relation connection='postgres.0swzw3v16z65hw12932ey1qs8e8m' name='Custom SQL Query' type='text'>SELECT patient.patient_id, location.location_id&#13;
 FROM patient&#13;
 JOIN location ON patient.location_id = location.location_id</relation>
-          <relation connection='postgres.0swzw3v16z65hw12932ey1qs8e8m' name='location' table='[public].[location]' type='table' />
+          <relation connection='postgres.0swzw3v16z65hw12932ey1qs8e8m' name='Custom SQL Query1' type='text'>SELECT&#13;
+  p.*,&#13;
+  l.zip,&#13;
+  l.city,&#13;
+  l.state,&#13;
+  l.county&#13;
+FROM&#13;
+  patient p&#13;
+INNER JOIN&#13;
+  location l&#13;
+ON&#13;
+  p.location_id = l.location_id</relation>
         </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
         <cols>
-          <map key='[city]' value='[location].[city]' />
-          <map key='[county]' value='[location].[county]' />
-          <map key='[location_id (location)]' value='[location].[location_id]' />
+          <map key='[additional_charges]' value='[Custom SQL Query1].[additional_charges]' />
+          <map key='[admis_id]' value='[Custom SQL Query1].[admis_id]' />
+          <map key='[age]' value='[Custom SQL Query1].[age]' />
+          <map key='[children]' value='[Custom SQL Query1].[children]' />
+          <map key='[city]' value='[Custom SQL Query1].[city]' />
+          <map key='[compl_id]' value='[Custom SQL Query1].[compl_id]' />
+          <map key='[county]' value='[Custom SQL Query1].[county]' />
+          <map key='[doc_visits]' value='[Custom SQL Query1].[doc_visits]' />
+          <map key='[full_meals]' value='[Custom SQL Query1].[full_meals]' />
+          <map key='[gender]' value='[Custom SQL Query1].[gender]' />
+          <map key='[hignblood]' value='[Custom SQL Query1].[hignblood]' />
+          <map key='[income]' value='[Custom SQL Query1].[income]' />
+          <map key='[initial_days]' value='[Custom SQL Query1].[initial_days]' />
+          <map key='[job_id]' value='[Custom SQL Query1].[job_id]' />
+          <map key='[lat]' value='[Custom SQL Query1].[lat]' />
+          <map key='[lng]' value='[Custom SQL Query1].[lng]' />
+          <map key='[location_id (Custom SQL Query1)]' value='[Custom SQL Query1].[location_id]' />
           <map key='[location_id]' value='[Custom SQL Query].[location_id]' />
+          <map key='[marital]' value='[Custom SQL Query1].[marital]' />
+          <map key='[patient_id (Custom SQL Query1)]' value='[Custom SQL Query1].[patient_id]' />
           <map key='[patient_id]' value='[Custom SQL Query].[patient_id]' />
-          <map key='[state]' value='[location].[state]' />
-          <map key='[zip]' value='[location].[zip]' />
+          <map key='[population]' value='[Custom SQL Query1].[population]' />
+          <map key='[readmis]' value='[Custom SQL Query1].[readmis]' />
+          <map key='[soft_drink]' value='[Custom SQL Query1].[soft_drink]' />
+          <map key='[state]' value='[Custom SQL Query1].[state]' />
+          <map key='[stroke]' value='[Custom SQL Query1].[stroke]' />
+          <map key='[totalcharge]' value='[Custom SQL Query1].[totalcharge]' />
+          <map key='[vitd_levels]' value='[Custom SQL Query1].[vitd_levels]' />
+          <map key='[vitd_supp]' value='[Custom SQL Query1].[vitd_supp]' />
+          <map key='[zip]' value='[Custom SQL Query1].[zip]' />
         </cols>
         <metadata-records>
           <metadata-record class='column'>
@@ -81,25 +126,359 @@ JOIN location ON patient.location_id = location.location_id</relation>
             <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_CA0EC7AE545D417FA6805BC70F593526]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
           <metadata-record class='column'>
-            <remote-name>location_id</remote-name>
-            <remote-type>3</remote-type>
-            <local-name>[location_id (location)]</local-name>
-            <parent-name>[location]</parent-name>
-            <remote-alias>location_id</remote-alias>
+            <remote-name>patient_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[patient_id (Custom SQL Query1)]</local-name>
+            <parent-name>[Custom SQL Query1]</parent-name>
+            <remote-alias>patient_id</remote-alias>
             <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[location_F08E7D4AEA5C4A9887D5C954C612BBAE]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>lat</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[lat]</local-name>
+            <parent-name>[Custom SQL Query1]</parent-name>
+            <remote-alias>lat</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <scale>0</scale>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[location_F08E7D4AEA5C4A9887D5C954C612BBAE]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>lng</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[lng]</local-name>
+            <parent-name>[Custom SQL Query1]</parent-name>
+            <remote-alias>lng</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <scale>0</scale>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[location_F08E7D4AEA5C4A9887D5C954C612BBAE]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>population</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[population]</local-name>
+            <parent-name>[Custom SQL Query1]</parent-name>
+            <remote-alias>population</remote-alias>
+            <ordinal>7</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
-            <contains-null>false</contains-null>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[location_F08E7D4AEA5C4A9887D5C954C612BBAE]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>children</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[children]</local-name>
+            <parent-name>[Custom SQL Query1]</parent-name>
+            <remote-alias>children</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[location_F08E7D4AEA5C4A9887D5C954C612BBAE]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>age</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[age]</local-name>
+            <parent-name>[Custom SQL Query1]</parent-name>
+            <remote-alias>age</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[location_F08E7D4AEA5C4A9887D5C954C612BBAE]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>income</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[income]</local-name>
+            <parent-name>[Custom SQL Query1]</parent-name>
+            <remote-alias>income</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <scale>0</scale>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[location_F08E7D4AEA5C4A9887D5C954C612BBAE]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>marital</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[marital]</local-name>
+            <parent-name>[Custom SQL Query1]</parent-name>
+            <remote-alias>marital</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[location_F08E7D4AEA5C4A9887D5C954C612BBAE]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>readmis</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[readmis]</local-name>
+            <parent-name>[Custom SQL Query1]</parent-name>
+            <remote-alias>readmis</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[location_F08E7D4AEA5C4A9887D5C954C612BBAE]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>gender</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[gender]</local-name>
+            <parent-name>[Custom SQL Query1]</parent-name>
+            <remote-alias>gender</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[location_F08E7D4AEA5C4A9887D5C954C612BBAE]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>initial_days</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[initial_days]</local-name>
+            <parent-name>[Custom SQL Query1]</parent-name>
+            <remote-alias>initial_days</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <scale>0</scale>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[location_F08E7D4AEA5C4A9887D5C954C612BBAE]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>totalcharge</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[totalcharge]</local-name>
+            <parent-name>[Custom SQL Query1]</parent-name>
+            <remote-alias>totalcharge</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <scale>0</scale>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[location_F08E7D4AEA5C4A9887D5C954C612BBAE]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>additional_charges</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[additional_charges]</local-name>
+            <parent-name>[Custom SQL Query1]</parent-name>
+            <remote-alias>additional_charges</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <scale>0</scale>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[location_F08E7D4AEA5C4A9887D5C954C612BBAE]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>vitd_levels</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[vitd_levels]</local-name>
+            <parent-name>[Custom SQL Query1]</parent-name>
+            <remote-alias>vitd_levels</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <scale>0</scale>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[location_F08E7D4AEA5C4A9887D5C954C612BBAE]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>doc_visits</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[doc_visits]</local-name>
+            <parent-name>[Custom SQL Query1]</parent-name>
+            <remote-alias>doc_visits</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[location_F08E7D4AEA5C4A9887D5C954C612BBAE]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>full_meals</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[full_meals]</local-name>
+            <parent-name>[Custom SQL Query1]</parent-name>
+            <remote-alias>full_meals</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[location_F08E7D4AEA5C4A9887D5C954C612BBAE]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>vitd_supp</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[vitd_supp]</local-name>
+            <parent-name>[Custom SQL Query1]</parent-name>
+            <remote-alias>vitd_supp</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[location_F08E7D4AEA5C4A9887D5C954C612BBAE]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>soft_drink</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[soft_drink]</local-name>
+            <parent-name>[Custom SQL Query1]</parent-name>
+            <remote-alias>soft_drink</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[location_F08E7D4AEA5C4A9887D5C954C612BBAE]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>hignblood</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[hignblood]</local-name>
+            <parent-name>[Custom SQL Query1]</parent-name>
+            <remote-alias>hignblood</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[location_F08E7D4AEA5C4A9887D5C954C612BBAE]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>stroke</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[stroke]</local-name>
+            <parent-name>[Custom SQL Query1]</parent-name>
+            <remote-alias>stroke</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[location_F08E7D4AEA5C4A9887D5C954C612BBAE]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>job_id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[job_id]</local-name>
+            <parent-name>[Custom SQL Query1]</parent-name>
+            <remote-alias>job_id</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[location_F08E7D4AEA5C4A9887D5C954C612BBAE]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>compl_id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[compl_id]</local-name>
+            <parent-name>[Custom SQL Query1]</parent-name>
+            <remote-alias>compl_id</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[location_F08E7D4AEA5C4A9887D5C954C612BBAE]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>admis_id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[admis_id]</local-name>
+            <parent-name>[Custom SQL Query1]</parent-name>
+            <remote-alias>admis_id</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[location_F08E7D4AEA5C4A9887D5C954C612BBAE]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>location_id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[location_id (Custom SQL Query1)]</local-name>
+            <parent-name>[Custom SQL Query1]</parent-name>
+            <remote-alias>location_id</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
             <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[location_F08E7D4AEA5C4A9887D5C954C612BBAE]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>zip</remote-name>
             <remote-type>3</remote-type>
             <local-name>[zip]</local-name>
-            <parent-name>[location]</parent-name>
+            <parent-name>[Custom SQL Query1]</parent-name>
             <remote-alias>zip</remote-alias>
-            <ordinal>5</ordinal>
+            <ordinal>28</ordinal>
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <precision>10</precision>
@@ -110,9 +489,9 @@ JOIN location ON patient.location_id = location.location_id</relation>
             <remote-name>city</remote-name>
             <remote-type>129</remote-type>
             <local-name>[city]</local-name>
-            <parent-name>[location]</parent-name>
+            <parent-name>[Custom SQL Query1]</parent-name>
             <remote-alias>city</remote-alias>
-            <ordinal>6</ordinal>
+            <ordinal>29</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>2147483647</width>
@@ -128,9 +507,9 @@ JOIN location ON patient.location_id = location.location_id</relation>
             <remote-name>state</remote-name>
             <remote-type>129</remote-type>
             <local-name>[state]</local-name>
-            <parent-name>[location]</parent-name>
+            <parent-name>[Custom SQL Query1]</parent-name>
             <remote-alias>state</remote-alias>
-            <ordinal>7</ordinal>
+            <ordinal>30</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>2147483647</width>
@@ -146,9 +525,9 @@ JOIN location ON patient.location_id = location.location_id</relation>
             <remote-name>county</remote-name>
             <remote-type>129</remote-type>
             <local-name>[county]</local-name>
-            <parent-name>[location]</parent-name>
+            <parent-name>[Custom SQL Query1]</parent-name>
             <remote-alias>county</remote-alias>
-            <ordinal>8</ordinal>
+            <ordinal>31</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
             <width>2147483647</width>
@@ -163,24 +542,221 @@ JOIN location ON patient.location_id = location.location_id</relation>
         </metadata-records>
       </connection>
       <aliases enabled='yes' />
+      <column caption='Readmission % of Population' datatype='real' name='[Calculation_1062005148526456837]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='(COUNT([readmis]) / SUM([population]))*100' />
+      </column>
       <_.fcp.ObjectModelTableType.true...column caption='location' datatype='table' name='[__tableau_internal_object_id__].[location_F08E7D4AEA5C4A9887D5C954C612BBAE]' role='measure' type='quantitative' />
       <_.fcp.ObjectModelTableType.true...column caption='patient' datatype='table' name='[__tableau_internal_object_id__].[patient_CA0EC7AE545D417FA6805BC70F593526]' role='measure' type='quantitative' />
+      <column datatype='real' name='[additional_charges]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[admis_id]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[age]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[children]' role='measure' type='quantitative' />
       <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column datatype='integer' name='[compl_id]' role='measure' type='quantitative' />
       <column caption='County' datatype='string' name='[county]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
-      <column aggregation='Sum' caption='Location Id (Location)' datatype='integer' name='[location_id (location)]' role='dimension' type='ordinal' />
+      <column datatype='integer' name='[doc_visits]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[full_meals]' role='measure' type='quantitative' />
+      <column caption='Income' datatype='real' name='[income]' role='measure' type='quantitative' />
+      <column datatype='real' name='[initial_days]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[job_id]' role='measure' type='quantitative' />
+      <column aggregation='Avg' datatype='real' name='[lat]' role='measure' semantic-role='[Geographical].[Latitude]' type='quantitative' />
+      <column datatype='real' name='[lng]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[location_id (Custom SQL Query1)]' role='measure' type='quantitative' />
       <column aggregation='Sum' caption='Location Id' datatype='integer' name='[location_id]' role='dimension' type='ordinal' />
       <column caption='Patient Id' datatype='string' name='[patient_id]' role='dimension' type='nominal' />
+      <column caption='Population' datatype='integer' name='[population]' role='measure' type='quantitative' />
+      <column caption='Number of Readmission' datatype='string' name='[readmis]' role='dimension' type='nominal' />
       <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+      <column caption='Total Charge' datatype='real' name='[totalcharge]' role='measure' type='quantitative' />
+      <column datatype='real' name='[vitd_levels]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[vitd_supp]' role='measure' type='quantitative' />
       <column aggregation='Sum' caption='Zip' datatype='integer' default-format='*00000' name='[zip]' role='dimension' semantic-role='[ZipCode].[Name]' type='ordinal' />
+      <column-instance column='[__tableau_internal_object_id__].[location_F08E7D4AEA5C4A9887D5C954C612BBAE]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:location_F08E7D4AEA5C4A9887D5C954C612BBAE:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[__tableau_internal_object_id__].[patient_CA0EC7AE545D417FA6805BC70F593526]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:patient_CA0EC7AE545D417FA6805BC70F593526:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[lat]' derivation='Avg' name='[avg:lat:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[population]' derivation='Count' name='[cnt:population:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[readmis]' derivation='Count' name='[cnt:readmis:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[readmis]' derivation='CountD' name='[ctd:readmis:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[population]' derivation='Sum' name='[diff:sum:population:qk]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Columns' type='Difference'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[readmis]' derivation='None' name='[none:readmis:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[state]' derivation='None' name='[none:state:nk]' pivot='key' type='nominal' />
+      <column-instance column='[population]' derivation='Sum' name='[pcrk:sum:population:qk]' pivot='key' type='quantitative'>
+        <table-calc ordering-field='[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[none:state:nk]' ordering-type='Field' rank-options='Competition,Ascending' type='PctRank' />
+      </column-instance>
+      <column-instance column='[readmis]' derivation='Count' name='[pcto:cnt:readmis:qk]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Rows' type='PctTotal' />
+      </column-instance>
+      <column-instance column='[population]' derivation='Sum' name='[pcto:sum:population:qk:1]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Columns' type='PctTotal' />
+      </column-instance>
+      <column-instance column='[population]' derivation='Sum' name='[pcto:sum:population:qk]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Rows' type='PctTotal' />
+      </column-instance>
+      <column-instance column='[population]' derivation='Sum' name='[pcva:sum:population:qk:1]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-field='[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[none:state:nk]' ordering-type='Field' type='PctValue'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[population]' derivation='Sum' name='[pcva:sum:population:qk]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Columns' type='PctValue'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[additional_charges]' derivation='Sum' name='[sum:additional_charges:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[admis_id]' derivation='Sum' name='[sum:admis_id:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[age]' derivation='Sum' name='[sum:age:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[children]' derivation='Sum' name='[sum:children:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[compl_id]' derivation='Sum' name='[sum:compl_id:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[doc_visits]' derivation='Sum' name='[sum:doc_visits:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[full_meals]' derivation='Sum' name='[sum:full_meals:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[income]' derivation='Sum' name='[sum:income:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[initial_days]' derivation='Sum' name='[sum:initial_days:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[job_id]' derivation='Sum' name='[sum:job_id:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[lng]' derivation='Sum' name='[sum:lng:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[location_id (Custom SQL Query1)]' derivation='Sum' name='[sum:location_id (Custom SQL Query1):qk]' pivot='key' type='quantitative' />
+      <column-instance column='[population]' derivation='Sum' name='[sum:population:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[totalcharge]' derivation='Sum' name='[sum:totalcharge:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[vitd_levels]' derivation='Sum' name='[sum:vitd_levels:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[vitd_supp]' derivation='Sum' name='[sum:vitd_supp:qk]' pivot='key' type='quantitative' />
       <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#499894'>
+              <bucket>&quot;[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[sum:compl_id:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[cnt:readmis:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[ctd:readmis:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[none:readmis:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[pcto:cnt:readmis:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[sum:totalcharge:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[sum:vitd_supp:qk]&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[sum:additional_charges:qk]&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[none:Calculation_669066080805613570:qk]&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[sum:doc_visits:qk]&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[sum:admis_id:qk]&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[__tableau_internal_object_id__].[cnt:location_F08E7D4AEA5C4A9887D5C954C612BBAE:qk]&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[sum:lng:qk]&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[sum:age:qk]&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[sum:initial_days:qk]&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[sum:job_id:qk]&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[sum:location_id (Custom SQL Query1):qk]&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[sum:vitd_levels:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.1lkvnyn1lg106h15e9wtx1f48iu5]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[sum:population:qk]:1&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[sum:children:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[cnt:population:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[diff:sum:population:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[pcrk:sum:population:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[pcto:sum:population:qk:1]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[pcto:sum:population:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[pcva:sum:population:qk:1]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[pcva:sum:population:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[sum:income:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[sum:population:qk]&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[avg:lat:qk]&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[sum:full_meals:qk]&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[__tableau_internal_object_id__].[cnt:patient_CA0EC7AE545D417FA6805BC70F593526:qk]&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
       <semantic-values>
         <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
       </semantic-values>
+      <field-sort-info field-sort-order-type='custom-order'>
+        <field-sort-custom-order field='patient_id' />
+        <field-sort-custom-order field='location_id' />
+      </field-sort-info>
       <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
         <objects>
           <object caption='location' id='location_F08E7D4AEA5C4A9887D5C954C612BBAE'>
             <properties context=''>
-              <relation connection='postgres.0swzw3v16z65hw12932ey1qs8e8m' name='location' table='[public].[location]' type='table' />
+              <relation connection='postgres.0swzw3v16z65hw12932ey1qs8e8m' name='Custom SQL Query1' type='text'>SELECT&#13;
+  p.*,&#13;
+  l.zip,&#13;
+  l.city,&#13;
+  l.state,&#13;
+  l.county&#13;
+FROM&#13;
+  patient p&#13;
+INNER JOIN&#13;
+  location l&#13;
+ON&#13;
+  p.location_id = l.location_id</relation>
             </properties>
           </object>
           <object caption='patient' id='patient_CA0EC7AE545D417FA6805BC70F593526'>
@@ -195,23 +771,120 @@ JOIN location ON patient.location_id = location.location_id</relation>
           <relationship>
             <expression op='='>
               <expression op='[location_id]' />
-              <expression op='[location_id (location)]' />
+              <expression op='[location_id (Custom SQL Query1)]' />
             </expression>
             <first-end-point object-id='patient_CA0EC7AE545D417FA6805BC70F593526' />
-            <second-end-point _.fcp.ObjectModelRelationshipPerfOptions.true...is-db-set-unique-key='true' object-id='location_F08E7D4AEA5C4A9887D5C954C612BBAE' unique-key='true' />
+            <second-end-point object-id='location_F08E7D4AEA5C4A9887D5C954C612BBAE' />
           </relationship>
         </relationships>
       </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
     </datasource>
   </datasources>
+  <mapsources>
+    <mapsource name='Tableau' />
+  </mapsources>
   <worksheets>
-    <worksheet name='Sheet 1'>
+    <worksheet name='Population vs Readmission by State'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontalignment='1'>&lt;Sheet Name&gt;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Custom SQL Query+ (D211 Advanced Data Acquisition)' name='federated.1lkvnyn1lg106h15e9wtx1f48iu5' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.1lkvnyn1lg106h15e9wtx1f48iu5'>
+            <column-instance column='[readmis]' derivation='Count' name='[cnt:readmis:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[state]' derivation='None' name='[none:state:nk]' pivot='key' type='nominal' />
+            <column caption='Population' datatype='integer' name='[population]' role='measure' type='quantitative' />
+            <column caption='Number of Readmission' datatype='string' name='[readmis]' role='dimension' type='nominal' />
+            <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column-instance column='[population]' derivation='Sum' name='[sum:population:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[sum:population:qk]' field-type='quantitative' fold='true' scope='rows' type='space' />
+            <format attr='title' class='0' field='[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[cnt:readmis:qk]' scope='rows' value='# of Readmission ' />
+            <format attr='title' class='0' field='[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[sum:population:qk]' scope='rows' value='Population' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[cnt:readmis:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[:Measure Names]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='1.087458610534668' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[sum:population:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[:Measure Names]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+                <format attr='mark-color' value='#f9a655' />
+                <format attr='mark-transparency' value='132' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.1lkvnyn1lg106h15e9wtx1f48iu5].[cnt:readmis:qk] + [federated.1lkvnyn1lg106h15e9wtx1f48iu5].[sum:population:qk])</rows>
+        <cols>[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[none:state:nk]</cols>
+      </table>
+      <simple-id uuid='{288B5E7C-99CB-4063-90AD-3F8115C5A0E0}' />
+    </worksheet>
+    <worksheet name='Sheet 2'>
       <table>
         <view>
           <datasources />
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
           <aggregation value='true' />
         </view>
-        <style />
+        <style>
+          <style-rule element='field-labels-spanner'>
+            <format attr='background-color' scope='cols' value='#00000000' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
         <panes>
           <pane selection-relaxation-option='selection-relaxation-allow'>
             <view>
@@ -223,14 +896,58 @@ JOIN location ON patient.location_id = location.location_id</relation>
         <rows />
         <cols />
       </table>
-      <simple-id uuid='{288B5E7C-99CB-4063-90AD-3F8115C5A0E0}' />
+      <simple-id uuid='{34B97C2F-1B1F-46E7-948E-DACF140A72B9}' />
     </worksheet>
   </worksheets>
-  <windows saved-dpi-scale-factor='1.25' source-height='37'>
-    <window class='worksheet' maximized='true' name='Sheet 1'>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='Population vs Readmission by State'>
       <cards>
         <edge name='left'>
-          <strip size='200'>
+          <strip size='289'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='38'>
+            <card type='columns' />
+          </strip>
+          <strip size='38'>
+            <card type='rows' />
+          </strip>
+          <strip size='38'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='1' param='[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-width' />
+        <highlight>
+          <color-one-way>
+            <field>[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[attr:state:nk]</field>
+            <field>[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[cnt:population:ok]</field>
+            <field>[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[cnt:readmis:ok]</field>
+            <field>[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[none:Calculation_669066080793423873:qk]</field>
+            <field>[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[none:Calculation_669066080805613570:qk]</field>
+            <field>[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[none:Calculation_669066080805793795:ok]</field>
+            <field>[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[none:readmis:nk]</field>
+            <field>[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[none:state:nk]</field>
+            <field>[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[sum:population:qk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{84DFE8C3-4E4A-45ED-BF48-75F7E9954C80}' />
+    </window>
+    <window class='worksheet' name='Sheet 2'>
+      <cards>
+        <edge name='left'>
+          <strip size='275'>
             <card type='pages' />
             <card type='filters' />
             <card type='marks' />
@@ -243,16 +960,178 @@ JOIN location ON patient.location_id = location.location_id</relation>
           <strip size='2147483647'>
             <card type='rows' />
           </strip>
-          <strip size='2147483647'>
+          <strip size='31'>
             <card type='title' />
           </strip>
         </edge>
       </cards>
-      <simple-id uuid='{84DFE8C3-4E4A-45ED-BF48-75F7E9954C80}' />
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[cnt:readmis:qk]</field>
+            <field>[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[none:Calculation_1062005148525506561:qk]</field>
+            <field>[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[none:readmis:nk]</field>
+            <field>[federated.1lkvnyn1lg106h15e9wtx1f48iu5].[none:state:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{65A91BA6-3848-4C71-BDA5-BF751BB66F06}' />
     </window>
   </windows>
   <thumbnails>
-    <thumbnail height='192' name='Sheet 1' width='192'>
+    <thumbnail height='192' name='Population vs Readmission by State' width='192'>
+      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
+      Z5/jB8COogMAAAAASUVORK5CYII=
+    </thumbnail>
+    <thumbnail height='192' name='Sheet 2' width='192'>
       iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAABJ0AAASdAHeZh94
       AAACFUlEQVR4nO3TMQEAIAzAMMC/5yFjRxMFfXpnZg5Eve0A2GQA0gxAmgFIMwBpBiDNAKQZ
       gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
