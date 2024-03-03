@@ -1,0 +1,30 @@
+SELECT
+  p.*,
+  l.zip,
+  l.city,
+  l.state,
+  l.county
+FROM
+  patient p
+INNER JOIN
+  location l
+ON
+  p.location_id = l.location_id
+
+
+SQL Explanation
+
+This SQL query retrieves a combined set of data from two tables: patient and location. It performs the following operations:
+
+SELECT p.*, l.zip, l.city, l.state, l.county: This line is specifying the columns to be selected. p.* means all columns from the patient table, and l.zip, l.city, l.state, l.county are specific columns selected from the location table.
+
+FROM patient p: This line indicates that the data is being selected from the patient table, and it is giving this table an alias p that is used to refer to it in other parts of the query.
+
+INNER JOIN location l: This tells the SQL engine to perform an inner join operation with the location table, which is given an alias l. An inner join only includes rows from both tables that have matching values in the columns being joined on.
+
+ON p.location_id = l.location_id: This line specifies the condition for the join. It tells the database to match rows from the patient table with rows from the location table where the location_id column in the patient table is equal to the location_id column in the location table.
+
+In plain English, the query is saying:
+"Give me all the information from the patient table, and also provide me with the zip code, city, state, and county for each patient by matching each patient's location identifier with the location identifier in the location table."
+
+This would result in a combined dataset that includes patient information alongside the corresponding location information for each patient.
