@@ -1,0 +1,12 @@
+SELECT
+  p.*,
+  l.zip,
+  l.city,
+  l.state,
+  l.county
+FROM
+  patient p
+INNER JOIN
+  location l
+ON
+  p.location_id = l.location_id
